@@ -1,0 +1,151 @@
+{
+  "profile": {
+    "name": "Vaishnav P Varma",
+    "firstName": "Vaishnav",
+    "lastName": "P Varma",
+    "title": "Computational Biologist · CSIR-IGIB",
+    "subtitle": "COMPUTATIONAL BIOLOGIST · BIOINFORMATICS · NEW DELHI",
+    "tagline": "Computational method development and machine learning for integrative multi-omics in infectious disease and host–pathogen genomics.",
+    "location": "New Delhi, India",
+    "phone": "+91-9677399947",
+    "email": "vaishnavpvarma@gmail.com",
+    "cv": "/cv-vaishnav-p-varma.pdf",
+    "social": {
+      "github": "https://github.com/vaishnavpvarma",
+      "linkedin": "https://linkedin.com/in/vaishnav-p-varma",
+      "scholar": "https://scholar.google.com/",
+      "website": "https://vaishnavpvarma.github.io"
+    },
+    "githubUsername": "vaishnavpvarma"
+  },
+  "boot": [
+    "[ OK ] Mounting Lustre_File_System...",
+    "[ OK ] Initializing ONT_Dengue_Surveillance_Pipeline...",
+    "[ OK ] Loading Maxscriber_v2.0_CLI...",
+    "[ OK ] Spawning SLURM workers x32...",
+    "[ OK ] Allocating GPU::A100 for Dorado basecaller...",
+    "[ RUN ] Mapping reads with minimap2 -ax map-ont...",
+    "[ OK ] Calling variants :: Clair3 model r10.4.1_sup",
+    "[ OK ] Phasing haplotypes :: WhatsHap",
+    "[ OK ] Indexing pan-genome graph (vg)...",
+    "[ RUN ] Booting portfolio.tsx ..."
+  ],
+  "experience": [
+    {
+      "id": "igib",
+      "role": "Project Associate-I",
+      "org": "CSIR — Institute of Genomics and Integrative Biology (IGIB)",
+      "period": "Aug 2024 — Present",
+      "bullets": [
+        "Leading dengue genomic surveillance using Oxford Nanopore long-read sequencing.",
+        "Building Maxscriber — clinical metadata automation for high-throughput sequencing.",
+        "Developing nf-core / Snakemake workflows for variant calling and lineage assignment."
+      ],
+      "galleryTag": "igib"
+    },
+    {
+      "id": "imtech",
+      "role": "Research Intern",
+      "org": "CSIR — Institute of Microbial Technology (IMTECH)",
+      "period": "Earlier",
+      "bullets": [
+        "Microbial comparative genomics and pan-genome analysis.",
+        "Custom Perl scripting for immunoinformatics epitope prediction pipelines."
+      ],
+      "galleryTag": "imtech"
+    },
+    {
+      "id": "who-searo",
+      "role": "Bioinformatics Trainer",
+      "org": "WHO SEARO Regional Workshop",
+      "period": "Workshop · Bangkok",
+      "bullets": [
+        "Hands-on training on long-read sequencing for South-East Asia regional public-health scientists.",
+        "Curriculum: ONT basecalling, viral consensus calling, lineage assignment."
+      ],
+      "galleryTag": "who-searo"
+    }
+  ],
+  "projects": [
+    {
+      "id": "maxscriber",
+      "title": "Maxscriber",
+      "type": "cli",
+      "tagline": "Clinical metadata automation",
+      "description": "Automation framework for ingesting clinical & lab metadata into ONT sequencing pipelines.",
+      "tags": ["Python", "Nextflow", "Nanopore", "LIMS", "SLURM"],
+      "githubRepo": "vaishnavpvarma/maxscriber",
+      "readme": "Maxscriber bridges the LIMS ↔ ONT pipeline gap. It validates samplesheets against an institutional schema, reconciles per-sample clinical metadata, and dispatches `nf-core/viralrecon` jobs to SLURM with a single command.\n\n## Why\nManual metadata reconciliation was the #1 source of run failures across our dengue surveillance program. Maxscriber removes that class of errors entirely.\n\n## Pipeline stages\n1. **Validate** — JSON-schema check on samplesheet\n2. **Reconcile** — fuzzy-match LIMS records by barcode\n3. **Dispatch** — submit Nextflow run with resolved params\n4. **Watch** — push run status to Slack",
+      "cli": [
+        "$ maxscriber --run RUN_2025_04_21 --platform promethion",
+        "▸ Validating samplesheet ........................ OK",
+        "▸ Reconciling LIMS metadata (n=96 samples) ...... OK",
+        "▸ Submitting nf-core/viralrecon to SLURM ........ OK",
+        "✓ Pipeline dispatched. job_id=4711"
+      ]
+    },
+    {
+      "id": "haplotype-methylation",
+      "title": "Haplotype-resolved Methylation",
+      "type": "card",
+      "tagline": "Long-read epigenomics",
+      "description": "Phasing 5mC CpG methylation from PromethION reads to resolve allele-specific methylation.",
+      "tags": ["Dorado", "minimap2", "Clair3", "WhatsHap"],
+      "githubRepo": "vaishnavpvarma/haplotype-methylation",
+      "readme": "Per-allele 5mC quantification from Oxford Nanopore PromethION reads.\n\nPipeline: Dorado (modified-base) → minimap2 → Clair3 (variants) → WhatsHap (phasing) → per-haplotype methylation BED.\n\n## Use cases\n- Imprinting validation\n- Loss-of-imprinting in cancer\n- Allele-specific epigenetic silencing"
+    },
+    {
+      "id": "scrapemate",
+      "title": "ScrapeMate",
+      "type": "card",
+      "tagline": "Climate data automation",
+      "description": "Resilient scraping & ETL pipeline that aggregates regional climate datasets for downstream analysis.",
+      "tags": ["Python", "Playwright", "DuckDB", "Cron"],
+      "githubRepo": "vaishnavpvarma/scrapemate",
+      "readme": "ScrapeMate is a resilient ETL framework for harvesting regional climate datasets. Built on Playwright + DuckDB with cron-driven incremental updates and automatic schema drift detection."
+    }
+  ],
+  "patent": {
+    "number": "520964",
+    "title": "An Apparatus for Collecting Tree Sap",
+    "office": "Indian Patent Office",
+    "status": "Granted",
+    "abstract": "A low-cost, contamination-resistant apparatus for the controlled collection of tree sap exudate, designed for field deployment in remote ecological surveys. The apparatus integrates a self-sealing collection chamber, a one-way pressure equalization vent, and a modular reservoir compatible with standard centrifuge tubes.",
+    "claims": [
+      "A self-sealing tap unit insertable into the cambium without long-term tissue damage.",
+      "A pressure-equalization vent that prevents back-flow contamination.",
+      "A modular reservoir system compatible with downstream lab consumables."
+    ],
+    "modelUrl": "/models/patent.glb"
+  },
+  "blog": [
+    {
+      "id": "ont-basecalling-2025",
+      "title": "Notes on Dorado v0.7 — what changed for r10.4.1 sup",
+      "date": "2025-03-12",
+      "tags": ["nanopore", "basecalling"],
+      "excerpt": "The new Dorado release brings a measurable bump in modified-base accuracy. Here's what we observed across a 96-sample dengue run.",
+      "tweetId": "1581752329005490177"
+    },
+    {
+      "id": "snakemake-vs-nextflow",
+      "title": "Snakemake vs Nextflow for surveillance pipelines",
+      "date": "2025-01-28",
+      "tags": ["workflows", "opinion"],
+      "excerpt": "After a year of running both side-by-side, here's the trade-off matrix I wish I'd had when starting.",
+      "tweetId": "1581752329005490177"
+    },
+    {
+      "id": "lims-rant",
+      "title": "Why LIMS metadata is the silent killer of sequencing runs",
+      "date": "2024-11-04",
+      "tags": ["lims", "automation"],
+      "excerpt": "A short post-mortem on three failed runs and what Maxscriber does to prevent them.",
+      "tweetId": "1581752329005490177"
+    }
+  ],
+  "linkedinPosts": [
+    "https://www.linkedin.com/posts/vaishnav-p-varma_genomics-bioinformatics-csir-activity-7000000000000000000",
+    "https://www.linkedin.com/posts/vaishnav-p-varma_nanopore-dengue-surveillance-activity-7000000000000000001"
+  ]
+}
