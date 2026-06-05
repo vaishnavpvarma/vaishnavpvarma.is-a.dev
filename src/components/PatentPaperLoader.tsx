@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import treeImg from "@/assets/date-palm-tree.jpg";
+const treeImg = "/assets/date-palm-tree.jpg";
 
 type Mode = "loading" | "reloading";
 
